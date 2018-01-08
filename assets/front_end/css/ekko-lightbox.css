@@ -1,0 +1,79 @@
+/*!
+ * Lightbox for Bootstrap 3 by @ashleydw
+ * https://github.com/ashleydw/lightbox
+ *
+ * License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
+ */
+
+.ekko-lightbox-container {
+  position: relative;
+}
+
+.ekko-lightbox-nav-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+
+.ekko-lightbox-nav-overlay a {
+  z-index: 100;
+  display: block;
+  width: 49%;
+  height: 100%;
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000;
+  opacity: 0;
+  filter: dropshadow(color=#000000, offx=2, offy=2);
+  -webkit-transition: opacity 0.5s;
+     -moz-transition: opacity 0.5s;
+       -o-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+}
+
+/*.ekko-lightbox-nav-overlay a:empty {
+  width: 49%;
+}*/
+
+.ekko-lightbox a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+.ekko-lightbox .fa-chevron-left,
+.ekko-lightbox .fa-chevron-right {
+    width: 65px;
+    height: 65px;
+	background:rgba(0,0,0,0.6);
+	color:#fff;
+	line-height:65px!important;
+	text-align:center;
+	position:absolute;
+	top:50%;
+	transform:translateY(-50%);
+	-webkit-transform:translateY(-50%);
+	-moz-transform:translateY(-50%);
+	-ms-transform:translateY(-50%);
+}
+
+.ekko-lightbox .fa-chevron-left:hover,
+.ekko-lightbox .fa-chevron-right:hover {
+	background:rgba(50,76,115, 1);
+}
+
+.ekko-lightbox .fa-chevron-left {
+  left: 0;
+  float: left;
+}
+
+.ekko-lightbox .fa-chevron-right {
+  right: 0;
+  float: right;
+}
+
+.ekko-lightbox .modal-footer {
+  text-align: left;
+}

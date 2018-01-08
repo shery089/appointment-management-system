@@ -1,0 +1,84 @@
+$dayCellSize: 32px;
+$datepickerWidth: 250px;
+$datepickerMinBodyHeight: 170px;
+$datepickerBorderRadius: 4px;
+$datepickerPadding: 4px;
+$datepickerZIndex: 100;
+
+$fontFamily: Tahoma;
+$fontSize: 14px;
+
+$yearsPerRow: 4;
+
+$textColor: (
+  button: #5cc4ef,
+  otherMonth: #dedede,
+  otherMonthInRange: #ccc,
+  disabled: #aeaeae,
+  currentDate: #4EB5E6,
+  common: #4a4a4a,
+  dayNames: #FF9A19,
+  navArrows: #9c9c9c
+);
+
+$bg: (
+  selected: #5cc4ef,
+  selectedHover: darken(#5cc4ef, 5),
+  inRange: rgba(#5cc4ef, .1),
+  hover: #f0f0f0
+);
+
+$borderColor: (
+  nav: #efefef,
+  inline: #d7d7d7,
+  default: #dbdbdb
+);
+
+$navigationHeight: 32px;
+$navigationButtonsOffset: 2px;
+
+$pointerSize: 10px;
+$pointerOffset: 10px;
+
+// Transitions
+$transitionSpeed: .3s;
+$transitionEase: ease;
+$transitionOffset: 8px;
+
+// Objects
+%otherMonth {
+  color: map_get($textColor, otherMonth);
+
+  &:hover {
+    color: darken(map_get($textColor, otherMonth), 10);
+  }
+
+  &.-disabled- {
+    &.-focus- {
+      color: map_get($textColor, otherMonth);
+    }
+  }
+
+  &.-selected- {
+    color: #fff;
+    background: lighten(map_get($bg, selected), 15);
+    &.-focus- {
+      background: lighten(map_get($bg, selected), 10);
+    }
+  }
+  
+  &.-in-range- {
+    background-color: map_get($bg, inRange);
+    color: darken(map_get($textColor, otherMonth), 7);
+
+    &.-focus- {
+      background-color: rgba(map_get($bg, inRange), .2);
+    }
+  }
+
+
+  &:empty {
+    background: none;
+    border: none;
+  }
+}

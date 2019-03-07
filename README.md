@@ -2,10 +2,11 @@
 
 An Appointment Management System for clinics developed with the help of following technologies
 
-* Codeigniter 3
-* jQuery
+* Codeigniter v3.1.10
 * MySQL
-* Bootstrap
+* Bootstrap v3.3.7
+* jQuery v3.3.1
+* jQuery UI v1.12.1
 * Full Calendar
 
 ### Current Functionality ###
@@ -27,4 +28,10 @@ An Appointment Management System for clinics developed with the help of followin
 
 ##### Import the DB #####
 
-`ams.sql` is the DB file you can find in the root directory of this repo.
+`ams.sql` is the DB file can be find inside the database folder in the root directory of this repo.
+
+## Setup Environment
+
+Rename the `.env-example` file to `.env` file and modify the variables according to your environment.
+
+Good Luck!

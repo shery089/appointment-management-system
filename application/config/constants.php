@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | 
 */
 
-defined('BASE_URL') OR define('BASE_URL','http://'.$_SERVER['HTTP_HOST'].'/ams/');
-defined('ADMIN_ASSETS') OR define('ADMIN_ASSETS', BASE_URL . 'assets/admin/');
+
+defined('ADMIN_ASSETS') OR define('ADMIN_ASSETS', getenv('BASE_URL') . '/' . getenv('ADMIN_ASSETS'));
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +24,7 @@ defined('ADMIN_ASSETS') OR define('ADMIN_ASSETS', BASE_URL . 'assets/admin/');
 | 
 */
 
-defined('BASE_URL') OR define('BASE_URL','http://'.$_SERVER['HTTP_HOST'].'/ams/');
-defined('FRONT_END_ASSETS') OR define('FRONT_END_ASSETS', BASE_URL . 'assets/front_end/');
+defined('FRONT_END_ASSETS') OR define('FRONT_END_ASSETS', getenv('BASE_URL') . '/' . getenv('FRONT_END_ASSETS'));
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +35,7 @@ defined('FRONT_END_ASSETS') OR define('FRONT_END_ASSETS', BASE_URL . 'assets/fro
 | 
 */
 
-define('IMAGE_PATH', realpath(FCPATH  . 'assets/admin/images/doctors/'));
+define('IMAGE_PATH', getenv('BASE_URL') . '/' . getenv('IMAGE_PATH'));
 
 
 /*
@@ -48,7 +47,7 @@ define('IMAGE_PATH', realpath(FCPATH  . 'assets/admin/images/doctors/'));
 | 
 */
 
-define('PHONE_NUMBER', '0543-123456');
+define('PHONE_NUMBER', getenv('PHONE_NUMBER'));
 
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +58,7 @@ define('PHONE_NUMBER', '0543-123456');
 | 
 */
 
-define('CLINIC', 'Think Health Pro');
+define('CLINIC', getenv('CLINIC'));
 
 
 /*
@@ -72,7 +71,7 @@ define('CLINIC', 'Think Health Pro');
 | 
 */
 
-defined('REGISTERATION_PREPEND') OR define('REGISTERATION_PREPEND', 'MR-');
+defined('REGISTERATION_PREPEND') OR define('REGISTERATION_PREPEND', getenv('REGISTERATION_PREPEND'));
 
 /*
 |--------------------------------------------------------------------------

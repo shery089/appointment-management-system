@@ -56,6 +56,21 @@
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
+ * --------------------------------------------------------------------
+ * LOAD PHP DOT ENV FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ *
+ */
+	// Autoloader
+	if (file_exists(__DIR__ .'/vendor/' . 'autoload.php')) {
+		require_once(__DIR__ .'/vendor/' . 'autoload.php');
+		$dotenv = Dotenv\Dotenv::create(__DIR__);
+		$dotenv->load();
+	}
+	
+/*
  *---------------------------------------------------------------
  * ERROR REPORTING
  *---------------------------------------------------------------

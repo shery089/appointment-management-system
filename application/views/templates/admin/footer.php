@@ -1080,7 +1080,7 @@
     // function that expects a promise as an argument:
     function displayData(x) 
     {
-        x.success(function(realData) 
+        x.done(function(realData)
         {   
             var time = jQuery.parseJSON(realData);
             time = time[0];

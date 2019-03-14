@@ -227,7 +227,7 @@ $(window).load(function(){
     {
         $.ajax({
 
-            url: '/ams/f/appointment/check_avaiable_schedule/',
+            url: '/f/appointment/check_avaiable_schedule/',
             method: 'post',
             data: {'doctor_id': doctor_id, 'date': date, 'time': time},
             success: function(data) 
@@ -246,7 +246,7 @@ $(window).load(function(){
     {
         $.ajax({
 
-            url: '/ams/f/doctor/display_doctor_by_keys/',
+            url: '/f/doctor/display_doctor_by_keys/',
             method: 'post',
             data: {'specialization': specialization},
             success: function(data)
@@ -319,7 +319,7 @@ $(window).load(function(){
     {
 
         $.ajax({
-            url: '/ams/f/schedule/get_schedule_by_doc_id_lookup/' + doctor_id,
+            url: '/f/schedule/get_schedule_by_doc_id_lookup/' + doctor_id,
             method: 'post',
             data: {'date': date},
             success: function(data)
@@ -378,7 +378,7 @@ $(window).load(function(){
     {
         $.ajax({
 
-            url: '/ams/f/schedule/get_schedules_by_doc_id_lookup/' + id,
+            url: '/f/schedule/get_schedules_by_doc_id_lookup/' + id,
             success: function(data)
             {
                 var active_dates = jQuery.parseJSON(data);
@@ -618,7 +618,7 @@ $(window).load(function(){
         id = $(this).attr('id');
         $.ajax({
 
-            url: '/ams/f/appointment/get_doctors_by_date_lookup/' + date,
+            url: '/f/appointment/get_doctors_by_date_lookup/' + date,
             success: function(data)
             {
                 if(id == 'submitted_date_1')
@@ -671,7 +671,7 @@ $(window).load(function(){
             {
 
                 $.ajax({
-                    url: '/ams/a/autocomplete/mr_number_autocomplete/',
+                    url: '/a/autocomplete/mr_number_autocomplete/',
                     method: 'post',
                     data: {'old_cnic': old_cnic},
                     success: function(data)

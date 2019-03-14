@@ -18,7 +18,7 @@
     <link href="<?= ADMIN_ASSETS; ?>bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?= ADMIN_ASSETS; ?>dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="<?= ADMIN_ASSETS; ?>dist/css/sb-admin-2.css?v1" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="<?= ADMIN_ASSETS; ?>bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

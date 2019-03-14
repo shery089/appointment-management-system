@@ -18,13 +18,6 @@
  	<!-- Metis Menu Plugin JavaScript -->
     <script src="<?= ADMIN_ASSETS ?>bower_components/metisMenu/dist/metisMenu.min.js"></script>
         
-    <!-- Morris Charts JavaScript -->
-    <script src="<?= ADMIN_ASSETS ?>bower_components/morrisjs/morris.min.js"></script>
-    
-    <script src="<?= ADMIN_ASSETS ?>bower_components/raphael/raphael-min.js"></script>
-    
-    <script src="<?= ADMIN_ASSETS ?>js/morris-data.js"></script>
-        
     <!-- Custom Theme JavaScript -->
     <script src="<?= ADMIN_ASSETS ?>dist/js/sb-admin-2.js"></script>
         
@@ -60,7 +53,7 @@
 
     <script>
 		// CKEDITOR.replace('detail');
-        $(window).load(function(){
+        $(window).on('load', function(){
             $('a[id^="print_prescription_"]').on('click', function(){
                 var id = $(this).attr('id');
                 var id_length = id.length;
@@ -79,7 +72,7 @@
             if(controller === 'prescription')   
             {
                 jQuery.ajax({
-                    url: '/ams/a/' + controller + '/prescription_by_id_lookup/' + id,
+                    url: '/a/' + controller + '/prescription_by_id_lookup/' + id,
                     // method: 'post',
                     // data: data,
                     success: function(data)
@@ -116,7 +109,7 @@
             var id = id;
             
             jQuery.ajax({
-                url: '/ams/a/' + controller + '/get_modal/' + id,
+                url: '/a/' + controller + '/get_modal/' + id,
                 method: 'post',
                 data: data,
                 success: function(data)
@@ -399,7 +392,7 @@
             var evening_shift = $('#evening_shift_reschedule_' + id).val();
 
             $.ajax({
-                url: '/ams/a/appointment/reschedule_appointment_lookup/' + id,
+                url: '/a/appointment/reschedule_appointment_lookup/' + id,
                 method: 'post',
                 data: {'submitted_date': date, 'morning_shift': morning_shift, 'evening_shift': evening_shift},
                 success: function(data)
@@ -451,17 +444,17 @@
 
     // Appointment Autocomplete
     
-    $(window).load(function() {
+    $(window).on('load', function() {
         $("#auto_time").attr('readonly','readonly');
         time_picker('#auto_time', 08, 23, 08);
     });  
       
-    $(window).load(function() {
+    $(window).on('load', function() {
         $("#search_presc_time").attr('readonly','readonly');
         time_picker('#search_presc_time', 08, 23, 08);
     });
     
-    $(window).load(function() {
+    $(window).on('load', function() {
 
         $(document).on('blur', '#dashboard_time', function(){
             
@@ -478,15 +471,15 @@
 
     <script>
 
-        $(window).load(function() {
+        $(window).on('load', function() {
             $('td[data-date=' + localStorage.getItem('date') + ']').css('background-color', '#6BD9EC'); 
         });
             
-/*        $(window).load(function() {
+/*        $(window).on('load', function() {
             $('td[data-date=' + localStorage.getItem('dashboard_date') + ']').css('background-color', '#6BD9EC'); 
         });*/
             
-        $(window).load(function() {
+        $(window).on('load', function() {
 
             var $sfield = $('#mr_number').autocomplete({
             select: function( event, ui ) 
@@ -522,7 +515,7 @@
             });
         }); 
 
-        $(window).load(function() {
+        $(window).on('load', function() {
 
             var $sfield = $('#search_father_name').autocomplete({
             select: function( event, ui ) 
@@ -558,7 +551,7 @@
             });
         }); 
 
-        $(window).load(function() {
+        $(window).on('load', function() {
 
             var $sfield = $('#search_cnic').autocomplete({
             select: function( event, ui ) 
@@ -594,7 +587,7 @@
             });
         });  
 
-        $(window).load(function() {
+        $(window).on('load', function() {
 
             var $sfield = $('#search_doctor_name').autocomplete({
             select: function( event, ui ) 
@@ -630,7 +623,7 @@
             });
         });        
 
-        $(window).load(function() {
+        $(window).on('load', function() {
 
             var $sfield = $('#search_mobile_number').autocomplete({
             select: function( event, ui ) 
@@ -666,7 +659,7 @@
             });
         });
 
-        $(window).load(function() {
+        $(window).on('load', function() {
 
             var $sfield = $('#search_doc_mobile_number').autocomplete({
             select: function( event, ui ) 
@@ -702,7 +695,7 @@
             });
         });        
 
-        $(window).load(function() {
+        $(window).on('load', function() {
 
             var $sfield = $('#search_doc_specialization').autocomplete({
             select: function( event, ui ) 
@@ -763,7 +756,7 @@
             var second_shift_start = $('#second_shift_start').val().trim();
             var second_shift_end = $('#second_shift_end').val().trim();
             $.ajax({
-                url: '/ams/a/' + controller  + '/edit_schedule_lookup/' + id,
+                url: '/a/' + controller  + '/edit_schedule_lookup/' + id,
                 method: 'post',
                 data: {'id': id, 'ajax': true ,'first_shift_start': first_shift_start, 'first_shift_end': first_shift_end, 
                         'second_shift_start': second_shift_start, 'second_shift_end': second_shift_end},
@@ -788,12 +781,12 @@
 
         // second_popup
         
-        $(window).load(function() {
+        $(window).on('load', function() {
             $(document).on('click','.edit_schedule_form_modal_id',function(){
                 var id = $(this).attr("id");
                 var controller = $('#controller_name').val().trim();
                 $.ajax({
-                    url: '/ams/a/' + controller  + '/get_modal/' + 'second_popup',
+                    url: '/a/' + controller  + '/get_modal/' + 'second_popup',
                     method: 'post',
                     data: {'id': id},
                     success: function(data)
@@ -811,7 +804,7 @@
     </script>
 
     <script>
-        $(window).load(function() {
+        $(window).on('load', function() {
             $(document).on('focus','#appt_doctor',function(){
 
             $('#appt_doctor').autocomplete({
@@ -856,7 +849,7 @@
     function count_pending_appointments()
     {
         $.ajax({
-            url: '/ams/a/appointment/get_unapproved_appointments_count_lookup',
+            url: '/a/appointment/get_unapproved_appointments_count_lookup',
             method: 'POST',
             success: function(data)
             {
@@ -873,7 +866,7 @@
     function get_pending_appointments()
     {
         $.ajax({
-            url: '/ams/a/appointment/get_unapproved_appointments_lookup',
+            url: '/a/appointment/get_unapproved_appointments_lookup',
             method: 'POST',
             success: function(data)
             {
@@ -887,7 +880,7 @@
     }*/
 
     // notification
-    // $(window).load(function() {
+    // $(window).on('load', function() {
     //     count_pending_appointments();
     //     var delay = 120000; //2 minutes counted in milliseconds.
 
@@ -897,14 +890,14 @@
     // });
 /*
     // pending_appointments
-    $(window).load(function() {
+    $(window).on('load', function() {
         $('#pending_appointments').on('click', function(){
             get_pending_appointments();     
         });      
     });    
 
     // pending_appointments
-    $(window).load(function() {
+    $(window).on('load', function() {
         $('.approve_toggle').on('click', function(e){
             e.preventDefault();
             $(this).animate({opacity:0.6});
@@ -928,7 +921,7 @@
 // });
 
     // pending_appointments
-    $(window).load(function() {
+    $(window).on('load', function() {
         $('#pending_appointments_list').on('click', function(){
             get_pending_appointments();  
         });      
@@ -937,7 +930,7 @@
     </script> 
 
     <script>
-         $(window).load(function() {
+         $(window).on('load', function() {
             $(document).on('submit', '#add_prescription_form',function(e) {
                 e.preventDefault();
                 var prescription = ($('#prescription').val().length !== 0) ? $('#prescription').val() : '';
@@ -952,7 +945,7 @@
                 {
                     $.ajax({
 
-                        url: '/ams/a/prescription/add_prescription_lookup/',
+                        url: '/a/prescription/add_prescription_lookup/',
                         method: 'post',
                         data: {'prescription': prescription, 'food': food, 'next_visit_date': next_visit_date, 'presc_mr_number': presc_mr_number, 'presc_doctor': presc_doctor, 'presc_date': presc_date, 'presc_time': presc_time},
                         success: function(data)
@@ -1071,7 +1064,7 @@
     {
         return $.ajax({
 
-            url: '/ams/a/schedule/get_schedule_by_doc_id_lookup/' + id,
+            url: '/a/schedule/get_schedule_by_doc_id_lookup/' + id,
             method: 'post',
             data: {'date': date},
 
@@ -1165,7 +1158,7 @@
 
 <script>
         
-        $(window).load(function()
+        $(window).on('load', function()
         {  
             var controller = "<?= $this->uri->segment(3) ?>";      
             if(controller === "add_appointment_lookup" || controller === "edit_appointment_lookup")
@@ -1208,7 +1201,7 @@
 </script>
 
 <script>
-        $(window).load(function()
+        $(window).on('load', function()
         {
             $("#auto_date").datepicker({dateFormat: 'yy-mm-dd'}).attr('readonly','readonly');
             
@@ -1258,7 +1251,7 @@
         {
             $.ajax({
 
-                url: '/ams/a/autocomplete/display_patients/',
+                url: '/a/autocomplete/display_patients/',
                 method: 'post',
                 data: {'mr_number': mr_number, 'date': date, 'time': time},
                 success: function(data)
@@ -1283,7 +1276,7 @@
             var date = localStorage.getItem("dashboard_date");
             $.ajax({
 
-                url: '/ams/a/autocomplete/display_appointments/',
+                url: '/a/autocomplete/display_appointments/',
                 method: 'post',
                 data: {'doctor': doctor, 'time': time, 'date': date},
                 success: function(data)
@@ -1303,7 +1296,7 @@
         {
             $.ajax({
 
-                url: '/ams/a/autocomplete/display_schedules/',
+                url: '/a/autocomplete/display_schedules/',
                 method: 'post',
                 data: {'day': day, 'date': date, 'doctor': doctor},
                 success: function(data)
@@ -1332,7 +1325,7 @@
         {
             $.ajax({
 
-                url: '/ams/a/autocomplete/display_patient_by_keys/',
+                url: '/a/autocomplete/display_patient_by_keys/',
                 method: 'post',
                 data: {'mr_number': mr_number, 'father_name': father_name, 'mobile_number': mobile_number},
                 success: function(data)
@@ -1353,7 +1346,7 @@
         {
             $.ajax({
 
-                url: '/ams/a/autocomplete/get_prescription_by_keys/',
+                url: '/a/autocomplete/get_prescription_by_keys/',
                 method: 'post',
                 data: {'date': date, 'time': time, 'mr_number': mr_number, 'doctor_name': doctor_name},
                 success: function(data)
@@ -1375,7 +1368,7 @@
         {
             $.ajax({
 
-                url: '/ams/a/autocomplete/display_doctor_by_keys/',
+                url: '/a/autocomplete/display_doctor_by_keys/',
                 method: 'post',
                 data: {'specialization': specialization, 'doctor_name': doctor_name, 'mobile_number': mobile_number},
                 success: function(data)
@@ -1700,7 +1693,7 @@
                     'first_shift_end': first_shift_end, 'second_shift_start': second_shift_start, 'second_shift_end': second_shift_end, 'schedule_errors': schedule_errors};
                     
                     jQuery.ajax({
-                        url: '/ams/a/' + controller + '/get_modal/' + 'edit_popup',
+                        url: '/a/' + controller + '/get_modal/' + 'edit_popup',
                         method: 'post',
                         data: data,
                         success: function(data)
@@ -1769,7 +1762,7 @@
                 <!-- // Appointment Date at add_appointment_lookup -->
                 $.ajax({
 
-                    url: '/ams/f/appointment/get_doctors_by_date_lookup/' + clicked_date,
+                    url: '/f/appointment/get_doctors_by_date_lookup/' + clicked_date,
                     success: function(data)
                     {
                         $('#doctor').html(data);
@@ -1853,7 +1846,7 @@
     </script>
 
     <script>
-        $(window).load(function() {
+        $(window).on('load', function() {
             var controller = "<?= $this->uri->segment(2) ?>";
             if(controller === 'schedule')
             {
@@ -1866,7 +1859,7 @@
                     var second_shift_start = $('#second_shift_start').val();
                     var second_shift_end = $('#second_shift_end').val();
                     $.ajax({
-                        url: '/ams/a/appointment/get_appointments_by_date_lookup/',
+                        url: '/a/appointment/get_appointments_by_date_lookup/',
                         method: 'post',
                         data: {'date': date, 'doctor': doctor, 'first_shift_start': first_shift_start, 'first_shift_end': first_shift_end,
                                 'second_shift_start': second_shift_start, 'second_shift_end': second_shift_end},
@@ -1895,7 +1888,7 @@
     <script>
     
     // Function to preview image after validation
-    $(window).load(function()
+    $(window).on('load', function()
     {
         $('#loading').hide();
         $("#image").on('change', function() {

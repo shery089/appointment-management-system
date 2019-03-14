@@ -7,9 +7,9 @@ class Disease extends CI_Controller {
 	 * Index Page for this controller.
 	 *
 	 * Maps to the following URL
-	 * 		http://localhost/ams/doctor_specialization
+	 * 		http://localhost/doctor_specialization
 	 *	- or -
-	 *		http://localhost/ams/index.php/doctor_specialization/index
+	 *		http://localhost/index.php/doctor_specialization/index
 	 *	- or -
 	 * Since this controller is set as the default controller in
 	 * config/routes.php, it's displayed at http://localhost/dailyshop/

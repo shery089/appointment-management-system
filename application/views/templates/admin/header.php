@@ -35,11 +35,8 @@
     <link rel="stylesheet" href= "<?= ADMIN_ASSETS ?>dist/css/timeline.css">
         
     <!-- Custom CSS -->
-    <link rel="stylesheet" href= "<?= ADMIN_ASSETS ?>dist/css/sb-admin-2.css">
+    <link rel="stylesheet" href= "<?= ADMIN_ASSETS ?>dist/css/sb-admin-2.css?v1">
 
-    <!-- Morris Charts CSS -->
-    <link rel="stylesheet" href= "<?= ADMIN_ASSETS ?>bower_components/morrisjs/morris.css">
-        
     <!-- Custom Fonts -->
     <link rel="stylesheet" href= "<?= ADMIN_ASSETS ?>bower_components/font-awesome/css/font-awesome.min.css">
 
@@ -51,8 +48,6 @@
 
     <link rel="stylesheet" href= "<?= ADMIN_ASSETS ?>jquery-ui/jquery-ui.min.css">
     
-    <link rel="stylesheet" href= "<?= ADMIN_ASSETS ?>jquery-ui/jquery-ui.theme.min.css">
-
     <link rel="stylesheet" href= "<?= ADMIN_ASSETS ?>bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
     
     <link rel="stylesheet" href= "<?= ADMIN_ASSETS ?>bootstrap-timepicker/css/bootstrap-timepicker.min.css">

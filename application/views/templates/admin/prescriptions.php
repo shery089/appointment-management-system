@@ -74,7 +74,7 @@ a/Diet <div id="page-wrapper">
 					    <?php foreach ($prescriptions as $prescription): ?>
 					    	<tr>
 					   			<td><?= ucwords(entity_decode($prescription['patient_id']['mr_number'])); ?></td>
-					   			<td><?= ucwords(entity_decode($prescription['doctor_id'][0]['first_name'])) . ' ' . ucwords(entity_decode($prescription['doctor_id'][0]['middle_name'])) . ' ' . ucwords(entity_decode($prescription['doctor_id'][0]['last_name'])); ?></td>
+					   			<td><?= ucwords(entity_decode($prescription['doctor_id']['first_name'])) . ' ' . ucwords(entity_decode($prescription['doctor_id']['middle_name'])) . ' ' . ucwords(entity_decode($prescription['doctor_id']['last_name'])); ?></td>
 					   			<td><?= ucwords(entity_decode($prescription['visited_date'])); ?></td>
 					   			<td><?= ucwords(entity_decode($prescription['visited_time'])); ?></td>
 					   			<?php $cut_prescription = ucwords(entity_decode($prescription['prescription']));

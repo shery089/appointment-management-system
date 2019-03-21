@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2018 at 06:16 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- Generation Time: Mar 21, 2019 at 04:15 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -49,9 +51,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `first_name`, `middle_name`, `last_name`, `address`, `mobile_number`, `email`, `password`, `salt`, `joined_date`, `updated_date`, `is_active`, `token`, `type`, `permissions`) VALUES
-(18, 'sheryar', '', 'ahmed', 'dsdsdasdasdasdvbasvdasvdbavdbasvdbavdsbavdba', '03335735896', 'sheryarahmed007@gmail.com', '97d84d77629098c2409db526347b114cb18978533ef5f2f97e98f29bd8a38541b8f5def5a116a694659c0236171def2123f663c474b130ea1eaa9918cfc789d7', '5770c05bdf7ca2.33053265', '2016-06-27 10:57:47', '2016-06-27 10:57:47', 1, 'a06953314d655d701bccc982122afcb8115a94c980b17e1b8a0d6693c44644b4', '', '{"admin": 1}'),
-(20, 'ali', '', 'khan', 'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '03335487965', 'alikhan@gmail.com', '064eb3d44f696124953c1b90175645273eaa7b166b63c02b8434896d05e557811069d4308a3aea5181e98ccb77e76ef1ade7c7d9677736723bf508410ff0c087', '57ab09aa06d152.56643589', '2016-08-10 16:02:02', '2016-08-10 16:02:02', 1, '', '', '{"admin": 1}'),
-(21, 'raza', '', 'kazmi', 'dhasjdhajksdhakjsdhakj', '03335241578', 'razakazmi@gmail.com', 'a958622b538692a4d2e16e457700eb48be495b3a648ef413ed884fb243ff3f02ae0ef89c400bce1f8c60d177f1e637b118a813c91402ac19d9363669dee6e0d2', '58623f6b54bcf0.97837533', '2016-12-27 15:16:11', '2016-12-27 15:16:11', 1, '', '', '{"admin": 1}');
+(22, 'john', '', 'doe', 'lorem ipsum lorem ipsum', '12345678910', 'john.doe@example.com', '0f5b53ea2e11fbd9a0dd520b659561ba2f7f44a17ab5a82e59b318b313a67b29b83ece8e63f91ee00af6bab7610755978b936fb2036f708bb74a7f1492fc596c', '5c93aa3c23b3c2.31586952', '2019-03-21 20:14:04', '2019-03-21 20:14:04', 1, '', '', '{\"admin\": 1}');
 
 -- --------------------------------------------------------
 
@@ -72,6 +72,13 @@ CREATE TABLE `appointment` (
   `updated_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`id`, `admin_id`, `patient_id`, `doctor_id`, `visit_purpose`, `date`, `morning_shift`, `evening_shift`, `inserted_date`, `updated_date`, `updated_admin`) VALUES
+(1, 18, 12, 50, 'czxxxxxxxxxxxxxx', '2019-03-15', '0', '16:00', '2019-03-14 21:48:02', '2019-03-14 21:48:02', 0);
 
 -- --------------------------------------------------------
 
@@ -272,6 +279,13 @@ CREATE TABLE `prescription` (
   `food` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `prescription`
+--
+
+INSERT INTO `prescription` (`id`, `admin_id`, `patient_id`, `doctor_id`, `visited_date`, `visited_time`, `prescription`, `next_visit_date`, `food`) VALUES
+(1, 18, 12, 50, '2019-03-15', '16:00', 'yadjsbdjabsjd', '0000-00-00', 'bjdbasjdjasdb');
+
 -- --------------------------------------------------------
 
 --
@@ -327,7 +341,14 @@ INSERT INTO `schedule` (`id`, `day`, `date`, `doctor_id`, `first_shift_start`, `
 (29, 'Friday', '2017-02-24', 55, '7:00', '11:00', '16:00', '20:00', '2017-02-21 12:02:42', '2017-02-21 12:02:42'),
 (30, 'Wednesday', '2017-02-22', 56, '11:00', '15:00', '18:00', '22:00', '2017-02-21 12:03:03', '2017-02-21 12:03:03'),
 (31, 'Thursday', '2017-02-23', 56, '11:00', '15:00', '18:00', '22:00', '2017-02-21 12:03:03', '2017-02-21 12:03:03'),
-(32, 'Friday', '2017-02-24', 56, '11:00', '15:00', '18:00', '22:00', '2017-02-21 12:03:03', '2017-02-21 12:03:03');
+(32, 'Friday', '2017-02-24', 56, '11:00', '15:00', '18:00', '22:00', '2017-02-21 12:03:03', '2017-02-21 12:03:03'),
+(33, 'Thursday', '2019-03-14', 50, '7:00', '11:00', '16:00', '19:00', '2019-03-14 21:42:06', '2019-03-14 21:42:06'),
+(34, 'Friday', '2019-03-15', 50, '7:00', '11:00', '16:00', '19:00', '2019-03-14 21:42:06', '2019-03-14 21:42:06'),
+(35, 'Saturday', '2019-03-16', 50, '7:00', '11:00', '16:00', '19:00', '2019-03-14 21:42:06', '2019-03-14 21:42:06'),
+(36, 'Sunday', '2019-03-17', 50, '7:00', '11:00', '16:00', '19:00', '2019-03-14 21:42:06', '2019-03-14 21:42:06'),
+(37, 'Monday', '2019-03-18', 50, '7:00', '11:00', '16:00', '19:00', '2019-03-14 21:42:06', '2019-03-14 21:42:06'),
+(38, 'Tuesday', '2019-03-19', 50, '7:00', '11:00', '16:00', '19:00', '2019-03-14 21:42:06', '2019-03-14 21:42:06'),
+(39, 'Wednesday', '2019-03-20', 50, '7:00', '11:00', '16:00', '19:00', '2019-03-14 21:42:06', '2019-03-14 21:42:06');
 
 --
 -- Indexes for dumped tables
@@ -408,52 +429,62 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `disease`
 --
 ALTER TABLE `disease`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
 --
 -- AUTO_INCREMENT for table `doctor_details`
 --
 ALTER TABLE `doctor_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+
 --
 -- AUTO_INCREMENT for table `doctor_specialization`
 --
 ALTER TABLE `doctor_specialization`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
 --
 -- AUTO_INCREMENT for table `patient_details`
 --
 ALTER TABLE `patient_details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `prescription`
 --
 ALTER TABLE `prescription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
 --
 -- Constraints for dumped tables
 --
@@ -477,6 +508,7 @@ ALTER TABLE `doctor_details`
 --
 ALTER TABLE `schedule`
   ADD CONSTRAINT `sch_fk_1` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -5,7 +5,7 @@ An Appointment Management System for clinics developed with the help of followin
 * Codeigniter v3.1.10
 * MySQL
 * Bootstrap v3.3.7
-* jQuery v3.3.1
+* jQuery v2.2.4
 * jQuery UI v1.12.1
 * Full Calendar
 

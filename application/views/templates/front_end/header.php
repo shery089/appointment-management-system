@@ -77,5 +77,5 @@
     <link rel="stylesheet" type="text/css" href="<?= ADMIN_ASSETS ?>timepicki/css/timepicki.css"/>
 
     <!-- jQuery -->  
-    <script src="<?= ADMIN_ASSETS ?>bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="<?= ADMIN_ASSETS ?>bower_components/jquery/dist/jquery.min.js?v1"></script>
 </head>
